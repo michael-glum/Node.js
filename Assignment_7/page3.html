@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Assignment 7, cse270e, Michael Glum, 1/9/2022-->
+<html lang="en">
+<head>
+    <title>Page 3</title>
+</head>
+<body>
+<script>
+function randNum() {
+    return Math.floor(Math.random() * 10001);
+}
+function isPrime(x) {
+    if (x === 1 || x === 0) {
+        return false;
+    }
+    if (x === 2) {
+        return true;
+    }
+    for (let i = 2; i < x; i++) {
+        if (x % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+for (let i = 0; i < 25; i++) {
+    let x = randNum();
+    if (isPrime(x)) {
+	document.write("<span style=\"background-color: HotPink\">" + x + "</span><br>");
+    } else {
+        document.write("<span>" + x + "</span><br>");
+    }
+}
+
+</script>
+</body>
+</html>
