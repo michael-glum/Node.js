@@ -27,7 +27,7 @@ app.use(responseTime(function(req, res, time) {
     console.log("Response time for " + req.url + ": " + time);
 }));
 
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));, 
+app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico'))); 
 
 var entries = new contacts.Contacts();
 app.locals.entries = entries;
