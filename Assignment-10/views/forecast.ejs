@@ -1,0 +1,19 @@
+<%- include("header") %>
+
+<h1>What's your ZIP code?</h1>
+<span style="display: inline-block" id="time"></span> 
+<span style="display: inline-block" id="temperature"></span>
+<span style="display: inline-block" id="weather"></span>
+<form id="forecastForm" class="pure-form">
+</div>
+  <fieldset>
+    <input type="number" name="zip" placeholder="12345" autofocus required>
+    <input type="submit" class="pure-button pure-button-primary" value="Go">
+  </fieldset>
+</form>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/main.js"></script>
+
+<a href="/">Index</a>
+<%- include("footer") %>
