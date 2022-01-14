@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #scott campbell, winter 2022, cse270, assignment 11. Post version of jeopardy
 
-API_URL='http://campbest.cec.miamioh.edu:3001'
+API_URL='http://glummb.270e.csi.miamioh.edu:3011'
 import requests
 import random
 

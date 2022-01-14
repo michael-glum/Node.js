@@ -5,7 +5,7 @@
 #
 #UPDATE URL
 
-API_URL="http://campbest.cec.miamioh.edu:3001"
+API_URL="http://glummb.270e.csi.miamioh.edu:3011"
 import requests
 import random
 
