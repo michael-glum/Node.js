@@ -1,0 +1,12 @@
+<%- include ("header") %>
+<h1>Jeopardy</h1>
+<form method="post" role="form">
+  <div class="form-group">
+    <label for="username">Enter your name: </label>
+    <input type="text" class="form-control" id="username" name="username" placeholder="Name" value="<%= username %>" required>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Submit" class="btn btn-primary">
+  </div>
+</form>
+<%- include ("footer") %>

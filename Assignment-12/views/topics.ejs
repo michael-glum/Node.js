@@ -1,0 +1,14 @@
+<%- include ("header") %>
+<h1>Jeopardy</h1>
+<h2> Welcome <%= username %></h2>
+<h3> Show Date: <%= show %></h3>
+<div>
+<table>
+<% let topicNumber = 0; %>
+<% topicList.forEach(function(topic) { %>
+  <tr><td><a href="/questions/<%= show %>/<%= topicNumber %>"><%= topic %></a></td></tr>
+  <% topicNumber++; %>
+<% }) %>
+</table>
+</div>
+<%- include ("footer") %> 

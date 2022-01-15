@@ -1,0 +1,31 @@
+<%- include ("header") %>
+<script>
+showDate = "<%= show %>";
+topicNum = "<%= topic %>";
+console.log("show date", showDate, "topicNum", topicNum);
+</script>
+
+<h1>Jeopardy</h1>
+
+<h2>Welcome <%= username %></h2>
+<div id="playAgain">
+  <h2>Play again?</h2>
+  <button type="button"><a href="/shows">Yes</a></button>
+  <button type="button"><a href="/thanks">No</a></button>
+</div>
+<div id="playingField">
+  <h3>Playing game from show date <%= show %></h3>
+  numPlayed = <span id="numPlayed">0</span>
+  numRight = <span id="numRight">0</span><br><br>
+  <div id="correct"></div>
+  <h4>Question: <span id="question"></span></h4>
+  <h4>Please select Answer:</h4>
+  <table id="answers">
+    <tbody></tbody>
+  </table>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/game.js"></script>
+
+<%- include ("footer") %>
