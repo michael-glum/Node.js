@@ -1,0 +1,8 @@
+<%- include ("header") %>
+<h1>Jeopardy</h1>
+<h2>Welcome <%= username %></h2>
+<h3>Shows: </h3>
+<% showList.forEach(function(show) { %>
+    <tr><td><a href="/topics/<%= show %>"><%= show %></a></td></tr>
+<% }) %>
+<%- include ("footer") %>
