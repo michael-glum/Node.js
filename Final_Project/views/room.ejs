@@ -1,0 +1,51 @@
+<%- include("header") %>
+<body style="text-align:center">
+  <h1>Chat Room <%= room %></h1>
+  <h3>Username: <%= username %></h3>
+  <div>
+    <a onclick="exit()" href="./">Exit Room</a>
+  </div>
+  <br>
+  <div>
+    <textarea id="message" style="width: 30%"></textarea><br>
+    <button onClick="fire()" style="width: 30%">Send</button>
+    <div id='messages'><p id="p"></p></div>
+  </div>
+<script>
+const getElement = (id) => document.getElementById(id);
+
+const addMessage = (message) => {
+    const pTag = document.createElement('p');
+    pTag.appendChild(document.createTextNode(message));
+    const last = getElement('p');
+    getElement('messages').insertBefore(pTag, last);
+    last.id = "";
+    pTag.id = 'p';
+};
+
+const ws = new WebSocket('ws://glummb.270e.csi.miamioh.edu:3031/');
+
+ws.onopen = () => {
+    console.log('Now connected');
+    ws.send(`<%= username %> joined the chat.<%= room - 1 %>`);
+};
+
+ws.onmessage = (event) => {
+    const messages = JSON.parse(event.data);
+    messages[<%= room - 1 %>].forEach(addMessage);
+};
+
+const fire = () => {
+    const value = getElement('message').value;
+    if (value != '') {
+        ws.send(`<%= username %>: ${value}<%= room - 1 %>`);
+        getElement('message').value = '';
+    }
+};
+
+const exit = () => {
+    ws.send(`<%= username %> exited the chat.<%= room -1 %>`);
+};
+
+</script>
+<%- include("footer") %>
