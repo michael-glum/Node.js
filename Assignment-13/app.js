@@ -28,11 +28,11 @@ load();*/
 
 
 app.get("/", function(req, res) {
-    res.render("index.ejs", {username : req.cookies.name});
+    res.render("index.ejs", {username : req.cookies.name}); //stc -> what if cookie not set?
 });
 
 app.post("/", async (req, res) => {
-    var name = req.body.username;
+    var name = req.body.username;  //stc if username not set?
     var shows = await questions.getShows();
     res.cookie('name', name);
     res.render("shows.ejs", {username: name, showList: shows});
@@ -40,7 +40,7 @@ app.post("/", async (req, res) => {
 
 
 app.get("/shows", async (req, res) => {
-    if (!req.cookies.name) {
+    if (!req.cookies.name) {  //stc good
         res.redirect("/");
 	return;
     }
@@ -71,7 +71,7 @@ app.get("/questions/:mm/:dd/:yy/:topic", async (req, res) => {
     var showDate = "" + req.params.mm + "/" + req.params.dd + "/" + req.params.yy;
     var topicNumber = req.params.topic;
     var q = await questions.getQuestions(showDate, topicNumber);
-    if (!q) {
+    if (!q) {  //stc good but you did not do for others.
 	res.redirect("/404");
 	return;
     }
@@ -145,7 +145,7 @@ app.get("/api/v1/jeopardy/check/:mm/:dd/:yy/:tn/:qn/:answer", async (req, res) =
 
 app.post("/api/v1/jeopardy/check", async (req, res) => {
     var result = await questions.checkAnswer(req.body.showDate, req.body.topicNum,
-    req.body.questionNum, req.body.answer);
+    req.body.questionNum, req.body.answer);  //stc really need to verify all these fields are present
 
     if (!result) {
         res.status(400);
